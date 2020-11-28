@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     numsService.ChangeNums1(nums);
                     numsService.ChangeNums2(nums);
                     numsService.ChangeNums3(nums);
+                    Toast.makeText(MainActivity.this, "更新成功", Toast.LENGTH_SHORT).show();
 
                 }else {
                     boolean flag = numsService.SetNums(nums);

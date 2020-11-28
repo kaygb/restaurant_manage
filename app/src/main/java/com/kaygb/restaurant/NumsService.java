@@ -16,7 +16,7 @@ public class NumsService {
         @return 写入成功返回 true
         可通过验证是否相同的日期，来判断是新写入数据还是修改数据
      */
-    public boolean SetNums(Nums nums){ // 无今日数据时调用
+    public boolean SetNums(Nums nums){ // 无今日数据时调用,创建新数据
 
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
 //        String sql = "insert into nums (date,time,time1,time2,meal1_p_num,meal2_p_num,meal3_p_num) values (1,2,3,4,5,6,7);";
@@ -56,6 +56,10 @@ public class NumsService {
         }
         return false;
     }
-    
+    public String[] getNums(Nums nums){  // 根据日期读取数据表，返回字符串数组
+        String[] str = null;
+
+        return  str;
+    }
 
 }
