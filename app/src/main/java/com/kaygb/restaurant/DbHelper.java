@@ -28,7 +28,7 @@ public class DbHelper extends SQLiteOpenHelper {
         String sql2 ="CREATE TABLE dishs(" +
                 "   did INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "   dish_name TEXT NOT NULL," +
-                "   dish_category TEXT NOT NULL," +
+                "   dish_category TEXT NOT NULL,dish_date TEXT NOT NULL," +
                 "   dish_count REAL NOT NULL," +
                 "   dish_price REAL NOT NULL," +
                 "   dish_amount REAL NOT NULL," +
@@ -65,10 +65,10 @@ public class DbHelper extends SQLiteOpenHelper {
                 "   qdate TEXT NOT NULL," +
                 "   qyijian TEXT," +
                 "   qqingkuang TEXT," +
-                "    qzhuguan TEXT," +
-                "    qsiwuzhang TEXT," +
-                "    qcsbz TEXT," +
-                "    qzby TEXT" +
+                "   qzhuguan TEXT," +
+                "   qsiwuzhang TEXT," +
+                "   qcsbz TEXT," +
+                "   qzby TEXT" +
                 ")";
         db.execSQL(sql1);
         db.execSQL(sql2);
