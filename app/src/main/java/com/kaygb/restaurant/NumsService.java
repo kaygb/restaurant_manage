@@ -63,20 +63,21 @@ public class NumsService {
         int meal2_p_num = 0;
         int meal3_p_num = 0;
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.query("nums", null, null, null, null, null,
-                null);
-        if (cursor.moveToFirst()) {
+        String sql = "select * from nums where date = ? ";
+        Cursor rawQuery = sqLiteDatabase.rawQuery(sql, new String[] {date});
+        if (rawQuery.moveToFirst()) {
             do {
-                meal1_p_num = cursor.getInt(cursor
+                meal1_p_num = rawQuery.getInt(rawQuery
                         .getColumnIndex("meal1_p_num"));
-                meal2_p_num = cursor.getInt(cursor
+                meal2_p_num = rawQuery.getInt(rawQuery
                         .getColumnIndex("meal2_p_num"));
-                meal3_p_num = cursor.getInt(cursor
+                meal3_p_num = rawQuery.getInt(rawQuery
                         .getColumnIndex("meal3_p_num"));
-            } while (cursor.moveToNext());
+            } while (rawQuery.moveToNext());
         }
         int[] nu = new int[]{meal1_p_num,meal2_p_num,meal3_p_num};
-        cursor.close();
+        Log.e("MEALNUM","m1:"+meal1_p_num+" m2:"+meal2_p_num+" m3:"+meal3_p_num);
+        rawQuery.close();
         return  nu;
     }
 

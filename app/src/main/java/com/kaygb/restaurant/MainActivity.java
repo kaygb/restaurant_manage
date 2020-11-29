@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText mNum2;
     private EditText mNum3;
     private Button mBtnAdd;
+    private Button mBtnHq;
     private String today = "1";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,16 @@ public class MainActivity extends AppCompatActivity {
         mNum2 = findViewById(R.id.editnum2);
         mNum3 = findViewById(R.id.editnum3);
         mBtnAdd = findViewById(R.id.btn_add);
+        mBtnHq = findViewById(R.id.btn_hq);
+        mBtnHq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NumsService numsService =new NumsService(getBaseContext());
+                String a = "6";  //假定日期为6，数据库要有数据才可判断，不然就闪退
+                int b[] = numsService.getNums(a);  // 获取日期为6那天的三餐人数，三个整形数组
+                Log.e("MEALNUM","b1:"+b[0]+" b2:"+b[1]+" b3:"+b[2]);
+            }
+        });
         mBtnAdd.setOnClickListener(new View.OnClickListener(){
 
             @Override
