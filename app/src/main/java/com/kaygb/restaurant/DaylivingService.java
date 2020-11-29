@@ -8,6 +8,6 @@ public class DaylivingService {
     public DaylivingService(Context context) {
         dbHelper = new DbHelper(context);
     }
-    
+
 
 }

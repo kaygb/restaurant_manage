@@ -3,6 +3,8 @@ package com.kaygb.restaurant;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
 // 人数表 服务类
 public class NumsService {
 
@@ -56,10 +58,26 @@ public class NumsService {
         }
         return false;
     }
-    public String[] getNums(Nums nums){  // 根据日期读取数据表，返回字符串数组
-        String[] str = null;
-
-        return  str;
+    public int[] getNums(String date){  // 根据日期读取数据表，返回传入日期的int数组(早餐人数，午餐人数，晚餐人数)
+        int meal1_p_num = 0;
+        int meal2_p_num = 0;
+        int meal3_p_num = 0;
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.query("nums", null, null, null, null, null,
+                null);
+        if (cursor.moveToFirst()) {
+            do {
+                meal1_p_num = cursor.getInt(cursor
+                        .getColumnIndex("meal1_p_num"));
+                meal2_p_num = cursor.getInt(cursor
+                        .getColumnIndex("meal2_p_num"));
+                meal3_p_num = cursor.getInt(cursor
+                        .getColumnIndex("meal3_p_num"));
+            } while (cursor.moveToNext());
+        }
+        int[] nu = new int[]{meal1_p_num,meal2_p_num,meal3_p_num};
+        cursor.close();
+        return  nu;
     }
 
 }
