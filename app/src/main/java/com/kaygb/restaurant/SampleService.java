@@ -16,4 +16,11 @@ public class SampleService {
         sqLiteDatabase.execSQL(sql, obj);
         return true;
     }
+    public String[] getSamples(){
+
+
+
+        String[] str = {};
+        return str;
+    }
 }
