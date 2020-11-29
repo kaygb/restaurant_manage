@@ -22,4 +22,26 @@ public class DishsService {
         sqLiteDatabase.execSQL(sql, obj);
         return true;
     }
+
+    public boolean updateSurplus1(Dishs dishs){ // 更新菜品早餐之后的结余
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        String sql =
+                "update dishs set dish_surplus1 = '"+ dishs.getDish_surplus1() +"' where date ='"+dishs.getDish_date()+"'";
+        sqLiteDatabase.execSQL(sql);
+        return true;
+    }
+    public boolean updateSurplus2(Dishs dishs){ // 更新菜品午餐之后的结余
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        String sql =
+                "update dishs set dish_surplus2 = '"+ dishs.getDish_surplus2() +"' where date ='"+dishs.getDish_date()+"'";
+        sqLiteDatabase.execSQL(sql);
+        return true;
+    }
+    public boolean updateSurplus3(Dishs dishs){ // 更新菜品晚餐之后的结余
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        String sql =
+                "update dishs set dish_surplus3 = '"+ dishs.getDish_surplus3() +"' where date ='"+dishs.getDish_date()+"'";
+        sqLiteDatabase.execSQL(sql);
+        return true;
+    }
 }
